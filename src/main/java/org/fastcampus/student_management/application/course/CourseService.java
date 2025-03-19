@@ -2,9 +2,11 @@ package org.fastcampus.student_management.application.course;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.domain.Course;
+import org.fastcampus.student_management.domain.CourseList;
 import org.fastcampus.student_management.domain.DayOfWeek;
 import org.fastcampus.student_management.domain.Student;
 import org.fastcampus.student_management.repo.CourseRepository;
@@ -14,7 +16,7 @@ public class CourseService {
   private final StudentService studentService;
 
   public CourseService(CourseRepository courseRepository, StudentService studentService) {
-    this.courseRepository = courseRepository;
+      this.courseRepository = courseRepository;
     this.studentService = studentService;
   }
 
@@ -24,12 +26,19 @@ public class CourseService {
     courseRepository.save(course);
   }
 
+  // 1. 일별 수업 정보 반환
   public List<CourseInfoDto> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
-    // TODO: 과제 구현 부분
-    return new ArrayList<>();
+    // TODO: 과제 구현 부분 - done
+    List<Course> courses = courseRepository.getCourseDayOfWeek(dayOfWeek);
+    return courses.stream().map(CourseInfoDto::new).toList();
   }
 
+  //  3. 수강생들의 수강료 변경 기능
   public void changeFee(String studentName, int fee) {
     // TODO: 과제 구현 부분
+    List<Course> courses = courseRepository.getCourseListByStudent(studentName);
+    CourseList courseList = new CourseList(courses);
+    courseList.changeAllCoursesFee(fee);
+    }
   }
-}
+

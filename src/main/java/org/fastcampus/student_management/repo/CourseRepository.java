@@ -15,6 +15,7 @@ public class CourseRepository {
     courseMap.put(course.getCourseName(), course);
   }
 
+  // 요일을 받고 저장된 수업을 불러오는 메소드
   public List<Course> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
     List<Course> courses = new ArrayList<>();
     for (Course course : courseMap.values()) {

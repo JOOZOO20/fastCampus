@@ -6,7 +6,7 @@ import org.fastcampus.student_management.domain.DayOfWeek;
 public class CourseInfoDto {
   private final String courseName;
   private final int fee;
-  private final DayOfWeek dayOfWeek;
+  private final DayOfWeek dayOfWeek; // Q. 열거형 클래스로 이미 작성을 했는데 또 다시 final로 선언한 이유가 있나? 그냥 가져다 쓰면 되는거 아닌가?
   private final String studentName;
   private final Long courseTime;
 

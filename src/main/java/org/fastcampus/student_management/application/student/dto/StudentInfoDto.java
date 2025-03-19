@@ -5,6 +5,8 @@ public class StudentInfoDto {
   private final int age;
   private final String address;
 
+//  private boolean actived;
+
   public StudentInfoDto(String name, int age, String address) {
     this.name = name;
     this.age = age;
@@ -22,4 +24,8 @@ public class StudentInfoDto {
   public String getAddress() {
     return address;
   }
+
+//  public boolean getActived(){
+//    return actived;
+//  }
 }
