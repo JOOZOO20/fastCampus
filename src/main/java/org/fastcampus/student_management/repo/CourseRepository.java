@@ -15,6 +15,7 @@ public class CourseRepository {
     courseMap.put(course.getCourseName(), course);
   }
 
+
   public List<Course> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
     List<Course> courses = new ArrayList<>();
     for (Course course : courseMap.values()) {
